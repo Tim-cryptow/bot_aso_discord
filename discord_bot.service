@@ -1,0 +1,20 @@
+[Unit]
+Description=Discord Bot
+After=network.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=discordbot
+Group=discordbot
+WorkingDirectory=/home/discordbot/discord_bot
+ExecStart=/home/discordbot/discord_bot/venv/bin/python /home/discordbot/discord_bot/aso.py
+Restart=always
+RestartSec=10
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=discordbot
+Environment="DISCORD_TOKEN=your_bot_token_here"
+
+[Install]
+WantedBy=multi-user.target

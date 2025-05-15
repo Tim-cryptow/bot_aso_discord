@@ -1,0 +1,1 @@
+worker: python aso.py
